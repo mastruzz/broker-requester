@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXRadioButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTableView?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="1239.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agibank.brokerrequester.controller.PrimaryViewController">
+   <children>
+      <GridPane layoutX="9.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="513.0">
+         <stylesheets>
+            <URL value="@../css/DefaultTheme.css" />
+            <URL value="@../css/Buttons.css" />
+            <URL value="@../css/ChecksRadiosToggles.css" />
+            <URL value="@../css/TextFields.css" />
+            <URL value="@../css/MFXToggleButton.css" />
+         </stylesheets>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="515.0" minWidth="10.0" prefWidth="424.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="124.0" minHeight="0.0" prefHeight="71.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="159.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="162.0" minHeight="0.0" prefHeight="69.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="206.0" minHeight="10.0" prefHeight="188.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Text fill="DODGERBLUE" smooth="false" text="Request" wrappingWidth="120.9462890625" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <font>
+                  <Font name="Open Sans ExtraBold" size="24.0" />
+               </font>
+            </Text>
+            <MFXTextField fx:id="urlField" floatingText="HOST" prefHeight="49.0" prefWidth="220.0" styleClass="mfx-text-field" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="8.0" left="8.0" right="200.0" top="8.0" />
+               </GridPane.margin>
+            </MFXTextField>
+            <MFXTextField fx:id="portField" floatingText="PORTA" prefHeight="49.0" prefWidth="146.0" styleClass="mfx-text-field" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="8.0" left="300.0" right="8.0" top="8.0" />
+               </GridPane.margin>
+            </MFXTextField>
+            <MFXButton fx:id="sendButton" buttonType="RAISED" minWidth="53.0" onAction="#sendMessage" prefHeight="34.0" prefWidth="71.0" styleClass="outline-button" text="Enviar" textFill="#0720a1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </MFXButton>
+            <Text fill="DODGERBLUE" smooth="false" text="Origem" wrappingWidth="71.9462890625" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <font>
+                  <Font name="Open Sans ExtraBold" size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </Text>
+            <MFXRadioButton fx:id="dockToggle" styleClass="mfx-radio-button" text="DOCK" textFill="#1b33cd" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Open Sans ExtraBold" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" right="100.0" />
+               </GridPane.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="origin" />
+               </toggleGroup>
+            </MFXRadioButton>
+            <MFXRadioButton fx:id="toggleTecban" selected="true" styleClass="mfx-radio-button" text="TECBAN" textFill="#2e0bab" toggleGroup="$origin" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Open Sans ExtraBold" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="100.0" />
+               </GridPane.margin>
+            </MFXRadioButton>
+            <MFXTextField fx:id="isoMessageField" floatMode="BORDER" floatingText="ISO 8583" prefHeight="142.0" prefWidth="510.0" styleClass="mfx-text-field" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
+            </MFXTextField>
+            <MFXToggleButton text="Multiplicar req" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </MFXToggleButton>
+            <MFXTextField fx:id="requestQuantity" floatingText="Quantidade de reenvios" prefHeight="49.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </MFXTextField>
+            <MFXToggleButton text="Rajada por tempo" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </MFXToggleButton>
+            <MFXTextField fx:id="requestTime" floatingText="Quanto tempo" prefHeight="49.0" prefWidth="237.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </MFXTextField>
+            <MFXComboBox fx:id="predefinedHost" floatingText="Endereço predefinido" prefHeight="40.0" prefWidth="511.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+            </MFXComboBox>
+            <MFXButton fx:id="InfoButton" minHeight="20.0" minWidth="44.0" prefHeight="30.0" prefWidth="54.0" rippleAnimateShadow="true" rippleColor="#5396bf" styleClass="link-button" text="Info" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </MFXButton>
+         </children>
+      </GridPane>
+      <Text fill="DODGERBLUE" layoutX="801.0" layoutY="28.0" smooth="false" text="Response">
+         <font>
+            <Font name="Open Sans ExtraBold" size="24.0" />
+         </font>
+      </Text>
+      <MFXTableView layoutX="536.0" layoutY="42.0" prefHeight="648.0" prefWidth="683.0" styleClass="mfx-table-view" />
+      <Line endX="-79.0" endY="421.0" layoutX="601.0" layoutY="243.0" startX="-79.0" startY="-175.0" stroke="#4a4a4a" />
+   </children>
+</AnchorPane>
